@@ -21,7 +21,7 @@ public class CrudController {
         return crudService.getCrud();
     }
 
-    @GetMapping("/{id")
+    @GetMapping("/{id}")
     public Crud CrudById(@PathVariable Long id) {
         return crudService.CrudById(id);
     }
@@ -31,7 +31,7 @@ public class CrudController {
         return crudService.saveCrud(crud);
     }
 
-    @PutMapping("/{id")
+    @PutMapping("/{id}")
     public Crud updateCrud(@PathVariable Long id, @RequestBody Crud crud){
         return crudService.updateCrud(id , crud);
     }
