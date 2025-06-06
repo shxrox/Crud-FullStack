@@ -17,7 +17,7 @@ public class CrudController {
     private CrudService crudService;
 
     @GetMapping
-    public List<Crud> getAllStudents() {
+    public List<Crud> getCrud() {
         return crudService.getCrud();
     }
 
