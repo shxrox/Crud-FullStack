@@ -5,6 +5,8 @@ import {
   updateCrud,
   deleteCrud,
 } from '../ServiceApi/CrudApi';
+import { FaEdit, FaRegTrashAlt } from 'react-icons/fa';
+import { RxUpdate } from 'react-icons/rx';
 
 function CrudApp() {
   const [items, setItems] = useState([]);
@@ -106,8 +108,18 @@ function CrudApp() {
           required
           style={{ padding: '8px', marginRight: '0.5rem', width: '30%' }}
         />
-        <button type="submit" style={{ padding: '8px 16px' }}>
-          {isEdit ? 'Update' : 'Add'}
+        <button
+          type="submit"
+          style={{
+            padding: '8px 16px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '6px',
+          }}
+          title={isEdit ? 'Update' : 'Add'}
+        >
+          {isEdit ? <RxUpdate size={20} /> : 'Add'}
         </button>
       </form>
 
@@ -130,10 +142,33 @@ function CrudApp() {
               <strong>{item.name}</strong> — Age: {item.age}, Email: {item.email}
             </div>
             <div>
-              <button onClick={() => handleEdit(item)} style={{ marginRight: '10px' }}>
-                Edit
+              <button
+                onClick={() => handleEdit(item)}
+                title="Edit"
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '1.2rem',
+                  color: 'blue',
+                  marginRight: '10px',
+                }}
+              >
+                <FaEdit />
               </button>
-              <button onClick={() => handleDelete(item.id)}>Delete</button>
+              <button
+                onClick={() => handleDelete(item.id)}
+                title="Delete"
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '1.2rem',
+                  color: 'red',
+                }}
+              >
+                <FaRegTrashAlt />
+              </button>
             </div>
           </li>
         ))}

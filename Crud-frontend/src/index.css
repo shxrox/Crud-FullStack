@@ -1,0 +1,210 @@
+/* Global variables for colors and fonts */
+:root {
+  --primary-color: #4a90e2;
+  --secondary-color: #50e3c2;
+  --danger-color: #e94e4e;
+  --background-color: #f9f9f9;
+  --card-bg: #ffffff;
+  --text-color: #333;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-color);
+  font-family: var(--font-family);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Container */
+div[style*="max-width: 800px"] {
+  background-color: var(--card-bg);
+  padding: 2rem 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin: 3rem auto;
+  max-width: 800px;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  letter-spacing: 1.2px;
+  font-weight: 700;
+}
+
+/* Search input */
+input[type="text"][placeholder="Search by name"] {
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  padding: 10px 15px;
+  outline-offset: 2px;
+  transition: border-color var(--transition-speed);
+}
+
+input[type="text"][placeholder="Search by name"]:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 6px var(--secondary-color);
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="email"] {
+  flex-grow: 1;
+  min-width: 160px;
+  padding: 12px 14px;
+  border: 2px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form input[type="email"]:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px var(--primary-color);
+  outline: none;
+}
+
+/* Submit button */
+form button[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color var(--transition-speed), transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+form button[type="submit"]:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+form button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* List styling */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background-color: var(--card-bg);
+  margin-bottom: 1rem;
+  padding: 14px 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.5s ease forwards;
+  transition: box-shadow var(--transition-speed);
+  cursor: default;
+}
+
+li:hover {
+  box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+  background-color: #f0f7ff;
+}
+
+/* Text inside list */
+li > div:first-child {
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+/* Buttons inside list */
+li button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  padding: 6px;
+  border-radius: 50%;
+  transition: background-color var(--transition-speed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li button[title='Edit'] {
+  color: var(--primary-color);
+}
+
+li button[title='Edit']:hover {
+  background-color: rgba(74, 144, 226, 0.15);
+}
+
+li button[title='Delete'] {
+  color: var(--danger-color);
+}
+
+li button[title='Delete']:hover {
+  background-color: rgba(233, 78, 78, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  form {
+    flex-direction: column;
+  }
+
+  form input,
+  form button[type="submit"] {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
