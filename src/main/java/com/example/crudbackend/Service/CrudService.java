@@ -30,12 +30,17 @@ public class CrudService {
          crudRepository.deleteById(id);
     }
 
-    public Crud updateCrud(Long id, Crud crud){
+    public Crud updateCrud(Long id, Crud crud) {
         Crud existingCrud = crudRepository.findById(id).orElse(null);
+        if (existingCrud == null) {
+            return null;
+        }
         existingCrud.setName(crud.getName());
         existingCrud.setAge(crud.getAge());
         existingCrud.setEmail(crud.getEmail());
         return crudRepository.save(existingCrud);
     }
+
+
 
 }
